@@ -1,10 +1,10 @@
 {
-  "name": "portfolio",
+  "name": "@audio-books/frontend",
   "version": "1.0.0",
-  "description": "My portfolio React.js project",
+  "description": "audio-books frontend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo OK",
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
     "watch": "npm run dev -- --watch",
@@ -13,9 +13,13 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gebeto/portfolio.git"
+    "url": "https://github.com/gebeto/audio-books"
   },
-  "license": "ISC",
+  "license": "MIT",
+  "browserslist": [
+    "ie >= 8",
+    "last 4 version"
+  ],
   "devDependencies": {
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
@@ -28,8 +32,8 @@
     "file-loader": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.12.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
     "typescript": "^3.5.3",
     "url-loader": "^2.1.0",
     "webpack": "^4.38.0",

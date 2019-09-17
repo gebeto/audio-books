@@ -1,14 +1,12 @@
 {
   "name": "audio-books",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "private": true,
-  "scripts": {
-    "test": "echo 'TESTS'"
-  },
   "workspaces": [
     "backend",
     "frontend"
-  ]
+  ],
+  "scripts": {
+    "test": "echo OK"
+  },
+  "license": "MIT"
 }

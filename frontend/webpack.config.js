@@ -1,6 +1,6 @@
 const path = require("path");
 
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
@@ -31,9 +31,7 @@ const config = {
 						loader: "postcss-loader",
 						options: {
 							plugins: [
-								autoprefixer({
-									browsers: ['ie >= 8', 'last 4 version'],
-								})
+								autoprefixer()
 							]
 						}
 					},
@@ -44,9 +42,7 @@ const config = {
 	},
 
 	plugins: [
-		new CleanWebpackPlugin([
-			"dist",
-		]),
+		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			template: "src/index.html",
 			inject: false,
