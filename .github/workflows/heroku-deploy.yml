@@ -16,20 +16,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Run a one-line script
-        run: echo Hello, world!
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-      - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 10
       - run: yarn
       - run: yarn test
       - run: yarn build
-      - run: git remote add heroku/master https://git.heroku.com/audio-books-server.git
-      - run: git push heroku/master HEAD:master
+      - run: git remote add heroku https://git.heroku.com/audio-books-server.git
+      - run: git push heroku master
         env:
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
