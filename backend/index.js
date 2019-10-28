@@ -4,6 +4,10 @@ const express = require('express');
 const fetch = require('node-fetch');
 const PORT = process.env.PORT || 5000;
 
+process.on('SIGINT', () => {
+	process.exit();
+});
+
 const app = express();
 
 app.use(function(req, res, next) {
@@ -13,28 +17,15 @@ app.use(function(req, res, next) {
 	next();
 });
 
+app.use('/static', express.static('static'));
+
+app.set('views', './templates');
+app.set('view engine', 'pug');
+
 
 app.get('/', function (req, res) {
-	res.send(`
-	<!DOCTYPE html>
-	<html>
-	  <head>
-	    <meta charset="UTF-8">
-	    <title>Books</title>
-
-	    <meta name="author" content="slavik.nychkalo@gmail.com">
-	    <meta name="viewport" content="width=device-width, user-scalable=no">
-	  </head>
-	  <body>
-		<div class="root" id="root"></div>
-		<script>
-			window.HOST = '';
-		</script>
-	    <script src="https://gebeto.github.io/web-projects/books/dist/bundle.js"></script>
-	  </body>
-	</html>`);
+	res.render('index', {})
 });
-
 
 app.get('/books', function (req, res) {
 	const { bookId } = req.params;
@@ -88,3 +79,4 @@ app.get('/books/:bookId/:track', function (req, res) {
 app.listen(PORT, function () {
 	console.log(`App listening on port ${PORT}!`);
 });
+
