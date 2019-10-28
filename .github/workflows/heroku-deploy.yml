@@ -23,7 +23,6 @@ jobs:
       - run: yarn test
       - run: yarn build
       - run: git remote add heroku https://git.heroku.com/audio-books-server.git
-      - run: git remote
       - run: git push heroku HEAD:master
         env:
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
