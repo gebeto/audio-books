@@ -23,5 +23,6 @@ jobs:
       - run: yarn test
       - run: yarn build
       - run: echo "machine api.heroku.com login slavik.nychkalo@gmail.com password ${{secrets.HEROKU_API_KEY}} \nmachine git.heroku.com login slavik.nychkalo@gmail.com password ${{secrets.HEROKU_API_KEY}}" > ~/.netrc
+      - run: cat ~/.netrc
       - run: git remote add heroku https://git.heroku.com/audio-books-server.git
       - run: git push heroku HEAD:master
