@@ -7,7 +7,8 @@
   ],
   "scripts": {
     "test": "echo OK",
-    "build": "yarn workspace @audio-books/frontend build"
+    "build": "yarn workspace @audio-books/frontend build",
+    "start": "yarn workspace @audio-books/backend start"
   },
   "license": "MIT"
 }

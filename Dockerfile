@@ -1,13 +1,14 @@
-FROM node:12.3.0-alpine
-
+# Building frontend
+FROM node:12.3.0-alpine as frontend
 COPY . /app
-
 WORKDIR /app
+RUN yarn && yarn build
 
+
+# Running server
+FROM node:12.3.0-alpine as backend
+COPY ./backend /app
+COPY --from=frontend /app/backend/static /app/static
+WORKDIR /app
 RUN yarn
-
-EXPOSE 5000
-
-# CMD ["exec", "yarn", "workspace", "@audio-books/backend", "start"]
-CMD ["node", "backend/index.js"]
-# ENTRYPOINT ["backend/index.js"]
+CMD ["node", "index.js"]

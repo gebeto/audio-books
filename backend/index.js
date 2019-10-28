@@ -4,7 +4,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 const PORT = process.env.PORT || 5000;
 
-process.on('SIGINT', function() {
+process.on('SIGINT', () => {
 	process.exit();
 });
 
