@@ -19,9 +19,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10
-      - run: yarn
-      - run: yarn test
-      - run: yarn build
+      # - run: yarn
+      # - run: yarn test
+      # - run: yarn build
       - run: echo "machine api.heroku.com login slavik.nychkalo@gmail.com password ${{secrets.HEROKU_API_KEY}} \nmachine git.heroku.com login slavik.nychkalo@gmail.com password ${{secrets.HEROKU_API_KEY}}" > ~/.netrc
       - run: cat ~/.netrc
       - run: git remote add heroku https://git.heroku.com/audio-books-server.git
