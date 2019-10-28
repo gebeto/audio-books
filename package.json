@@ -6,7 +6,8 @@
     "frontend"
   ],
   "scripts": {
-    "test": "echo OK"
+    "test": "echo OK",
+    "build": "yarn workspace @audio-books/frontend build"
   },
   "license": "MIT"
 }
