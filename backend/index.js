@@ -88,3 +88,8 @@ app.get('/books/:bookId/:track', function (req, res) {
 app.listen(PORT, function () {
 	console.log(`App listening on port ${PORT}!`);
 });
+
+
+process.on('SIGINT', function() {
+    process.exit();
+});

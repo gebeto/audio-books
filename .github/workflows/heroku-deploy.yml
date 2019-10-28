@@ -16,16 +16,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      # - uses: actions/setup-node@v1
-      #   with:
-      #     node-version: 10
-      # - run: yarn
-      # - run: yarn test
-      # - run: yarn build
-
-      - run: echo "machine api.heroku.com login slavik.nychkalo@gmail.com password $HEROKU_API_KEY \nmachine git.heroku.com login slavik.nychkalo@gmail.com password $HEROKU_API_KEY" > ~/.netrc
-        env:
-          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-      - run: cat ~/.netrc
-      - run: git remote add heroku https://git.heroku.com/audio-books-server.git
-      - run: git push heroku HEAD:master
+      - name: Build and deploy the Docker image
+        env: 
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          APP_NAME: ${{ 'audio-books' }}
+        run: |
+          docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
+          heroku container:push web -a $APP_NAME
+          heroku container:release web -a $APP_NAME
