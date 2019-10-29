@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { courseCoverLink } from '../api';
 
 
-class TrackInfo extends React.Component<any, any> {
+export class TrackInfo extends React.Component<{
+	track: { title: string; };
+	book: { book_id: any; };
+}, any> {
 	render() {
 		const { track, book } = this.props;
 		return (
