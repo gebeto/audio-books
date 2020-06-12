@@ -9,7 +9,8 @@ const config = {
 	entry: path.resolve(__dirname, "src/index.tsx"),
 	output: {
 		filename: "bundle.js",
-		path: path.resolve(__dirname, "../backend/static"),
+		// path: path.resolve(__dirname, "../backend/static"),
+		path: path.resolve(__dirname, "dist"),
 	},
 
 	resolve: {
@@ -20,21 +21,13 @@ const config = {
 		rules: [
 			{
 				test: /\.tsx?/,
-				loader: "awesome-typescript-loader",
+				loader: "babel-loader",
 			},
 			{
 				test: /\.(sa|sc|c)ss/,
 				use: [
 					"style-loader",
 					"css-loader",
-					{
-						loader: "postcss-loader",
-						options: {
-							plugins: [
-								autoprefixer()
-							]
-						}
-					},
 					"sass-loader",
 				]
 			},

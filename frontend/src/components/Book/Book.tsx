@@ -3,8 +3,10 @@ import JSONTree from 'react-json-tree';
 import { trackLink } from '../../api';
 import BookTrack from './BookTrack';
 
+import './index.scss';
 
-class Book extends React.Component<any, any> {
+
+export class Book extends React.Component<any, any> {
 	onTrackSelect = (track: any) => {
 		this.props.setTrack(this.props.book, track);
 	}
@@ -14,7 +16,7 @@ class Book extends React.Component<any, any> {
 		const { TracksListTitle, MainTitle, TracksList = [] } = book;
 		return (
 			<div className="book">
-				{null && <JSONTree data={this.props.book} />}
+				{null && <JSONTree data={book} />}
 				<h3>{TracksListTitle || 'Tracks'}</h3>
 				<ul>
 					{TracksList.map(track =>

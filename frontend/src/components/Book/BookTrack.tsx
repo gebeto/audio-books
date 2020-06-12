@@ -12,7 +12,7 @@ const cx = cn.bind({
 });
 
 
-class BookTrack extends React.Component<any, any> {
+export class BookTrack extends React.Component<any, any> {
 	onClick = () => {
 		this.props.onSelect(this.props.track);
 	}

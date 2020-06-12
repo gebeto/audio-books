@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-app.use('/static', express.static('static'));
+app.use('/static', express.static('../frontend/dist'));
 
 app.set('views', './templates');
 app.set('view engine', 'pug');
