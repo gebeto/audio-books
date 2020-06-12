@@ -3,7 +3,10 @@ import { Book } from './Book';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-export default { title: 'Book Item' };
+
+export default {
+	title: 'Book Item',
+};
 
 const initial = {
 	track: null,

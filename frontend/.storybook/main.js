@@ -7,6 +7,9 @@ module.exports = {
 				{
 					loader: 'babel-loader',
 				},
+				{
+					loader: 'react-docgen-typescript-loader',
+				},
 			],
 		});
 		config.module.rules.push({

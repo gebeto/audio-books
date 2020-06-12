@@ -9,16 +9,16 @@ export const getCategories = (): any => {
 	return fetch(`${base}/books`)
 		.then((res: any) => res.json())
 		.then(res => res.books)
-}
+};
 
 export const getBooks = (): any => {
 	return fetch(`${base}/books-learnenglish.json`)
 		.then((res: any) => res.json())
 		.then(res => res.books)
-}
+};
 
 export const getBook = (bookId: any): any => {
 	return fetch(`${base}/books/${bookId}`)
 		.then((res: any) => res.json())
 		.then(res => res.book)
-}
+};
