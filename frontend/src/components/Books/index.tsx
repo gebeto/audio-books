@@ -2,6 +2,7 @@ import Books from './Books';
 import { connect } from 'react-redux';
 
 import { getBooks, getBook } from '../../api';
+import { actions } from '../../store';
 
 import './index.scss';
 
@@ -14,22 +15,22 @@ export default connect(
 
 		fetchBooks() {
 			getBooks().then((books: any) => {
-				dispatch({
-					type: 'SET_BOOKS',
-					payload: books,
-				})
+				console.log(books);
+				dispatch(actions.setBooks(books));
+				// dispatch({
+				// 	type: 'SET_BOOKS',
+				// 	payload: books,
+				// })
 			});
 		},
 
 		selectBook(bookId) {
 			getBook(bookId).then(book => {
-				dispatch({
-					type: 'SET_BOOK',
-					payload: {
-						...book,
-						book_id: bookId
-					},
-				});
+				console.log('BBB', book);
+				dispatch(actions.setBook({
+					book_id: bookId,
+					...book,
+				}));
 			});
 		},
 

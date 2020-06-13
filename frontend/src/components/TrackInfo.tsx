@@ -3,22 +3,30 @@ import { connect } from 'react-redux';
 
 import { courseCoverLink } from '../api';
 
+export interface TrackInfoProps {
+	track: any;
+	book: any;
+}
 
-export class TrackInfo extends React.Component<{
-	track: { title: string; };
-	book: { book_id: any; };
-}, any> {
-	render() {
-		const { track, book } = this.props;
+export const TrackInfo = (props: TrackInfoProps) => {
+	if (!props.track || !props.book) {
 		return (
 			<div className="track-info">
 				<div className="track-info-image">
-					<img src={book.book_id ? courseCoverLink(book.book_id) : 'https://via.placeholder.com/150'} alt=""/>
 				</div>
-				<span className="track-info-title">{track.title || 'Пусто'}</span>
+				<span className="track-info-title">Пусто</span>
 			</div>
 		);
 	}
+
+	return (
+		<div className="track-info">
+			<div className="track-info-image">
+				<img src={courseCoverLink(props.book.book_id)} alt=""/>
+			</div>
+			<span className="track-info-title">{props.track.RecordTitle}</span>
+		</div>
+	);
 }
 
 

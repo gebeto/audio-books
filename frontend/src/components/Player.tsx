@@ -6,26 +6,19 @@ import ReactHowler from 'react-howler';
 import raf from 'raf';
 
 
-
-
-const Button = ({ children, ...props }) =>
-	<button {...props}>{children}</button>;
-
-class Player extends React.Component<any, any> {
-	render () {
-		const { bookId, file } = this.props.track;
-		if (!bookId || !file) {
-			return <audio controls></audio>;
-		}
-		return (
-			<audio src={trackLink(bookId, file)} autoPlay controls></audio>
-		)
+export const Player = (props) => {
+	if (!props.track) {
+		return <audio controls></audio>;
 	}
+	return (
+		<audio src={trackLink(props.book.book_id, props.track.RecordFileName)} autoPlay controls></audio>
+	)
 }
 
 export default connect(
 	(state: any) => ({
 		track: state.track,
+		book: state.book,
 	}),
 	(dispatch: any) => ({}),
 )(Player);

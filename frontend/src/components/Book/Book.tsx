@@ -13,14 +13,24 @@ export class Book extends React.Component<any, any> {
 	}
 
 	render() {
-		const { book = {} } = this.props;
-		const { TracksListTitle, MainTitle, TracksList = [] } = book;
+		const { book } = this.props;
+		// const { TracksListTitle, MainTitle, TracksList = [] } = book;
+
+		if (!book) {
+			return (
+				<div className="book">
+					<h3>Tracks</h3>
+					<ul></ul>
+				</div>
+			);
+		}
+
 		return (
 			<div className="book">
 				{null && <JSONTree data={book} />}
-				<h3>{TracksListTitle || 'Tracks'}</h3>
+				<h3>{book.TracksListTitle || 'Tracks'}</h3>
 				<ul>
-					{TracksList.map(track =>
+					{book.TracksList.map(track =>
 						<BookTrack key={track.RecordFileName} track={track} book={book} activeTrack={this.props.activeTrack} onSelect={this.onTrackSelect} />
 					)}
 				</ul>
