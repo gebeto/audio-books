@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import './index.scss';
+
 
 export class BookItem extends React.Component<any, any> {
 	onClick = () => {
@@ -34,12 +36,11 @@ export class Books extends React.Component<any, any> {
 	}
 
 	onBookSelect = (book) => {
-		this.props.selectBook(book.book_id);
+		this.props.selectBook && this.props.selectBook(book.book_id);
 	}
 
 	render() {
 		const { books } = this.props;
-		console.log('ASDASA');
 		return (
 			<div className="books">
 				<ul>

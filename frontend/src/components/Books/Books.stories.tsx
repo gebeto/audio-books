@@ -8,6 +8,8 @@ export default {
 
 export const booksList = () => (
 	<Books
+		fetchBooks={() => {}}
+		selectBook={() => {}}
 		books={[
 			{
 				author: "Пол Стоун",

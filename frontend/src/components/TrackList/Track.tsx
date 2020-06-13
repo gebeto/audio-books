@@ -2,7 +2,6 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import cn from 'classnames/bind';
 
-import JSONTree from 'react-json-tree';
 import { trackLink } from '../../api';
 
 
@@ -14,7 +13,7 @@ const cx = cn.bind({
 
 export class Track extends React.Component<any, any> {
 	onClick = () => {
-		this.props.onSelect(this.props.track);
+		this.props.onSelect && this.props.onSelect(this.props.track);
 	}
 
 	render() {
@@ -38,9 +37,3 @@ export class Track extends React.Component<any, any> {
 		);
 	}
 }
-
-export default connect(
-	(state: any, ownProps: any) => ({
-		isActive: state.track && state.track === ownProps.track,
-	})
-)(Track);

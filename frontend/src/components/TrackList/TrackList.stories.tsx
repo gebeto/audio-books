@@ -5,36 +5,38 @@ import { createStore } from 'redux';
 
 
 export default {
-	title: 'TrackList Item',
+	title: 'TrackList',
 };
 
-const initial = {
-	track: null,
-}
+const trackList = {
+	book_id: 1,
+	TracksListTitle: "Basic Track List",
+	TracksList: [
+		{
+			RecordFileName: "01.mp3",
+			RecordTitle: "Basic title 1",
+		},
+		{
+			RecordFileName: "02.mp3",
+			RecordTitle: "Basic title 2",
+		},
+		{
+			RecordFileName: "03.mp3",
+			RecordTitle: "Basic title 3",
+		},
+	]
+};
 
-const store = createStore((state = initial, action) => {
-	return state;
-})
+export const basicTrackList = () => {
+	const [ activeTrack, setActiveTrack ] = React.useState(trackList.TracksList[0]);
 
-export const testStud = () => (
-	<Provider store={store}>
+	return (
 		<TrackList
-			// activeTrack={this.props.activeTrack}
-			// onSelect={this.onTrackSelect}
-			book={{
-				book_id: 111,
-				TracksListTitle: "Hello test",
-				TracksList: [
-					{
-						RecordFileName: "file-1.mp3",
-						RecordTitle: "Test title 1",
-					},
-					{
-						RecordFileName: "file-2.mp3",
-						RecordTitle: "Test title 2",
-					},
-				]
+			setTrack={(book, track) => {
+				setActiveTrack(track);
 			}}
+			activeTrack={activeTrack}
+			book={trackList}
 		/>
-	</Provider>
-);
+	);
+}

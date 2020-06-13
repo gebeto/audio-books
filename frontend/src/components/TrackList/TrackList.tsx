@@ -2,7 +2,7 @@ import * as React from 'react';
 import JSONTree from 'react-json-tree';
 
 import { trackLink } from '../../api';
-import Track from './Track';
+import { Track } from './Track';
 
 import './index.scss';
 
@@ -29,13 +29,16 @@ export class TrackList extends React.Component<any, any> {
 				<h3>{book.TracksListTitle || 'Tracks'}</h3>
 				<ul>
 					{book.TracksList.map(track =>
-						<Track key={track.RecordFileName} track={track} book={book} activeTrack={this.props.activeTrack} onSelect={this.onTrackSelect} />
+						<Track
+							key={track.RecordFileName}
+							track={track}
+							book={book}
+							isActive={track === this.props.activeTrack}
+							onSelect={this.onTrackSelect}
+						/>
 					)}
 				</ul>
 			</div>
 		);
 	}
 }
-
-
-export default TrackList;

@@ -7,6 +7,8 @@ import './index.scss';
 
 
 export const TrackList = connect(
-	undefined,
+	state => ({
+		activeTrack: state.track,
+	}),
 	{ setTrack },
 )(TrackListRaw);
