@@ -5,6 +5,7 @@ import { trackLink } from '../api';
 
 
 export const Player = (props) => {
+	console.log('PLAY', props);
 	if (!props.track) {
 		return <audio controls></audio>;
 	}

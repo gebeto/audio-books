@@ -1,4 +1,5 @@
 import { createStore, AnyAction, applyMiddleware, combineReducers } from 'redux';
+import { batch } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 
@@ -52,6 +53,13 @@ export const selectBook = (bookId) => dispatch => {
 			...book,
 		}));
 	});
+}
+
+export const resetBook = (bookId) => dispatch => {
+	batch(() => {
+		dispatch(actions.setBook(undefined));
+		dispatch(actions.setTrack(undefined));
+	})
 }
 
 export const setTrack = (book, track) => dispatch => {
