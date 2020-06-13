@@ -1,8 +1,12 @@
 # Building frontend
 FROM node:12.3.0-alpine as frontend
-COPY . /app
 WORKDIR /app
-RUN yarn && yarn build
+COPY package.json package.json
+COPY ./frontend/package.json ./frontend/package.json
+COPY ./backend/package.json ./backend/package.json
+RUN yarn
+COPY . /app
+RUN yarn build
 
 
 # Running server
