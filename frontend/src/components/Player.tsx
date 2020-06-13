@@ -2,8 +2,6 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { trackLink } from '../api';
-import ReactHowler from 'react-howler';
-import raf from 'raf';
 
 
 export const Player = (props) => {
@@ -14,11 +12,3 @@ export const Player = (props) => {
 		<audio src={trackLink(props.book.book_id, props.track.RecordFileName)} autoPlay controls></audio>
 	)
 }
-
-export default connect(
-	(state: any) => ({
-		track: state.track,
-		book: state.book,
-	}),
-	(dispatch: any) => ({}),
-)(Player);

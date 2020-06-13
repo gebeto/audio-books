@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 
-class BookItem extends React.Component<any, any> {
+export class BookItem extends React.Component<any, any> {
 	onClick = () => {
 		this.props.onBookSelect(this.props.book);
 	}
@@ -27,8 +27,9 @@ class BookItem extends React.Component<any, any> {
 	}
 }
 
-class Books extends React.Component<any, any> {
+export class Books extends React.Component<any, any> {
 	componentDidMount() {
+		console.log('asdasda');
 		this.props.fetchBooks();
 	}
 
@@ -38,6 +39,7 @@ class Books extends React.Component<any, any> {
 
 	render() {
 		const { books } = this.props;
+		console.log('ASDASA');
 		return (
 			<div className="books">
 				<ul>
@@ -49,5 +51,3 @@ class Books extends React.Component<any, any> {
 		);
 	}
 }
-
-export default Books;

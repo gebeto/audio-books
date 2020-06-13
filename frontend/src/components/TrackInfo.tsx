@@ -28,12 +28,3 @@ export const TrackInfo = (props: TrackInfoProps) => {
 		</div>
 	);
 }
-
-
-export default connect(
-	(state: any) => ({
-		track: state.track,
-		book: state.book,
-	}),
-	(dispatch) => ({}),
-)(TrackInfo);

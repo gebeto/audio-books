@@ -2,8 +2,8 @@ import { createStore, AnyAction, applyMiddleware, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 
-import { Book, BookItem, Track } from './api';
 import { createSlice } from '@reduxjs/toolkit';
+import { Book, BookItem, Track, getBooks, getBook } from './api';
 
 interface InitialState {
 	books: BookItem[],
@@ -39,35 +39,24 @@ const mainSlice = createSlice({
 
 export const actions = mainSlice.actions;
 
-// function globalReducer(state: any = initialState, action: AnyAction) {
-// 	console.log(state, action);
+export const fetchBooks = () => dispatch => {
+	getBooks().then((books: any) => {
+		dispatch(actions.setBooks(books));
+	});
+}
 
-// 	if (action.type === 'SET_BOOKS') {
-// 		return {
-// 			...state,
-// 			books: action.payload,
-// 		};
-// 	} else if (action.type === 'SET_BOOK') {
-// 		return {
-// 			...state,
-// 			book: action.payload,
-// 		};
-// 	} else if (action.type === 'SET_TRACK') {
-// 		return {
-// 			...state,
-// 			track: action.payload,
-// 		};
-// 	} else if (false) {
+export const selectBook = (bookId) => dispatch => {
+	getBook(bookId).then(book => {
+		dispatch(actions.setBook({
+			book_id: bookId,
+			...book,
+		}));
+	});
+}
 
-// 	}
+export const setTrack = (book, track) => dispatch => {
+	dispatch(actions.setTrack(track));
+}
 
-// 	return state;
-// }
-
-
-// export default createStore(globalReducer, composeWithDevTools());
-// const reducers = combineReducers({
-// 	main: mainSlice.reducers,
-// });
 
 export const store = createStore(mainSlice.reducer, composeWithDevTools(applyMiddleware(thunkMiddleware)));

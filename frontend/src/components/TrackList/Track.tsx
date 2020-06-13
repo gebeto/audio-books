@@ -12,7 +12,7 @@ const cx = cn.bind({
 });
 
 
-export class BookTrack extends React.Component<any, any> {
+export class Track extends React.Component<any, any> {
 	onClick = () => {
 		this.props.onSelect(this.props.track);
 	}
@@ -43,4 +43,4 @@ export default connect(
 	(state: any, ownProps: any) => ({
 		isActive: state.track && state.track === ownProps.track,
 	})
-)(BookTrack);
+)(Track);

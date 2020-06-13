@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Book } from './Book';
+import { TrackList } from './TrackList';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 
 export default {
-	title: 'Book Item',
+	title: 'TrackList Item',
 };
 
 const initial = {
@@ -18,7 +18,7 @@ const store = createStore((state = initial, action) => {
 
 export const testStud = () => (
 	<Provider store={store}>
-		<Book
+		<TrackList
 			// activeTrack={this.props.activeTrack}
 			// onSelect={this.onTrackSelect}
 			book={{
