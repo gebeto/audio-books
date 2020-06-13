@@ -14,7 +14,6 @@ export class Book extends React.Component<any, any> {
 
 	render() {
 		const { book } = this.props;
-		// const { TracksListTitle, MainTitle, TracksList = [] } = book;
 
 		if (!book) {
 			return (

@@ -41,6 +41,6 @@ export class BookTrack extends React.Component<any, any> {
 
 export default connect(
 	(state: any, ownProps: any) => ({
-		isActive: state.track && state.track.file === ownProps.track.RecordFileName,
+		isActive: state.track && state.track === ownProps.track,
 	})
 )(BookTrack);
