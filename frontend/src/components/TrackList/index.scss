@@ -57,10 +57,18 @@
 
 			button {
 				border: none;
-				border-left: 1px solid #eee;
-				height: 100%;
+				margin-right: 2px;
 				padding: 10px;
 				cursor: pointer;
+				box-sizing: content-box;
+				width: 16px;
+				height: 16px;
+				line-height: 10px;
+				text-align: center;
+			}
+
+			button:last-child {
+				margin-right: 0;
 			}
 		}
 	}
