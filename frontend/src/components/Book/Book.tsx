@@ -26,7 +26,7 @@ export class Book extends React.Component<any, any> {
 
 		return (
 			<div className="book">
-				{null && <JSONTree data={book} />}
+				{/*null && <JSONTree data={book} />*/}
 				<h3>{book.TracksListTitle || 'Tracks'}</h3>
 				<ul>
 					{book.TracksList.map(track =>
