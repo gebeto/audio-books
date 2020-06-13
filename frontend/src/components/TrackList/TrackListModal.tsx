@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
 		title: {
 			marginLeft: theme.spacing(2),
 			flex: 1,
+			textOverflow: 'ellipsis',
+			overflow: 'hidden',
+			whiteSpace: 'nowrap',
 		},
 	}),
 );
@@ -54,9 +57,9 @@ export const TrackListModal = (props) => {
 					<Typography variant="h6" className={classes.title}>
 						{props.book && props.book.TracksListTitle}
 					</Typography>
-					<Button color="inherit" onClick={props.handleClose}>
-						save
-					</Button>
+					{/*<Button color="inherit" onClick={props.handleClose}>
+											save
+										</Button>*/}
 				</Toolbar>
 			</AppBar>
 			<List>
