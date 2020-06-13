@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Books } from './Books';
+import { BooksList } from './Books';
 
 export default {
-	title: 'Books',
+	title: 'BooksList',
 };
 
 
 export const booksList = () => (
-	<Books
+	<BooksList
 		fetchBooks={() => {}}
 		selectBook={() => {}}
 		books={[
